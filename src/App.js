@@ -1,18 +1,40 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import Header from './header/Header'
+import RecentSearches from './search/RecentSearches'
+import Search from './search/Search'
+import SearchResults from './search/SearchResults'
 
 class App extends Component {
   render () {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="container">
+        <div className="row">
+          <div className="column">
+            <Header/>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="column column-75">
+            <div className="container">
+              <div className="row">
+                <div className="column">
+                  <Search/>
+                </div>
+              </div>
+
+              <div className="row">
+                <div className="column">
+                  <SearchResults/>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="column column-25">
+            <RecentSearches/>
+          </div>
+        </div>
       </div>
     )
   }

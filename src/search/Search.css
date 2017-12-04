@@ -1,0 +1,12 @@
+form .form-group input[type=text] {
+  width: calc(100% - 12rem - 1rem);
+}
+
+form .form-group input.button-primary {
+  float: right;
+  width: 12rem;
+}
+
+form .form-group + * {
+  clear: both;
+}
