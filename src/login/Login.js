@@ -29,15 +29,18 @@ class Login extends Component {
           autoLoad={true}
           fields="name,email,picture"
           callback={this.loginSucceed.bind(this)}
-          onFailure={this.loginFailed.bind(this)} />
+          onFailure={this.loginFailed.bind(this)}
+          textButton="&nbsp;Login with Facebook"
+          cssClass="button"
+          icon="fa-facebook-official"/>
       </div>
     )
   }
 }
 
 Login.propTypes = {
-  changeLoginStatus: PropTypes.function,
-  changeUser: PropTypes.function
+  changeLoginStatus: PropTypes.func,
+  changeUser: PropTypes.func
 }
 
 export default Login
