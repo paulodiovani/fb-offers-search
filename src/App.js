@@ -1,10 +1,26 @@
 import React, { Component } from 'react'
 import Header from './header/Header'
-import RecentSearches from './search/RecentSearches'
-import Search from './search/Search'
-import SearchResults from './search/SearchResults'
+import Main from './main/Main'
+import Login from './login/Login'
 
 class App extends Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      loginStatus: null,
+      user: null
+    }
+  }
+
+  changeLoginStatus (status) {
+    this.setState({ loginStatus: status })
+  }
+
+  changeUser (user) {
+    this.setState({ user })
+  }
+
   render () {
     return (
       <div className="container">
@@ -15,27 +31,21 @@ class App extends Component {
         </div>
 
         <div className="row">
-          <div className="column column-75">
-            <div className="container">
-              <div className="row">
-                <div className="column">
-                  <Search/>
-                </div>
-              </div>
-
-              <div className="row">
-                <div className="column">
-                  <SearchResults/>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="column column-25">
-            <RecentSearches/>
+          <div className="column">
+            {this.renderContent()}
           </div>
         </div>
       </div>
+    )
+  }
+
+  renderContent () {
+    if (this.state.loginStatus === 'connected') return (<Main/>)
+    return (
+      <Login
+        changeLoginStatus={this.changeLoginStatus.bind(this)}
+        changeUser={this.changeUser.bind(this)}
+      />
     )
   }
 }
