@@ -2,3 +2,16 @@ th.price,
 td.price {
   text-align: right;
 }
+
+th.link,
+td.link {
+  text-align: center;
+}
+
+.truncated {
+  width: 400px;
+  display: block;
+  white-space: nowrap; /* forces text to single line */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
