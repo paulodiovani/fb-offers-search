@@ -1,33 +1,8 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import './SearchResults.css'
 
-const groupIds = [
-  // '1002772103090233',
-  '502867033154810'
-]
-
 class SearchResults extends Component {
-  constructor (props) {
-    super(props)
-
-    this.state = {
-      results: []
-    }
-  }
-
-  componentDidMount () {
-    groupIds.forEach((gid) => {
-      window.FB.api(
-        `/${gid}/feed?fields=message,picture,permalink_url,created_time`,
-        (response) => {
-          const results = this.state.results.concat(response.data)
-          results.sort((a, b) => a.created_time < b.created_time ? -1 : 1)
-          this.setState({ results })
-        }
-      )
-    })
-  }
-
   render () {
     return (
       <table className="results-table">
@@ -39,7 +14,7 @@ class SearchResults extends Component {
           </tr>
         </thead>
         <tbody>
-          {this.state.results.map(this.item.bind(this))}
+          {this.props.results.map(this.item.bind(this))}
         </tbody>
       </table>
     )
@@ -76,6 +51,10 @@ class SearchResults extends Component {
 
     return (<div className="description">{message}</div>)
   }
+}
+
+SearchResults.propTypes = {
+  results: PropTypes.array
 }
 
 export default SearchResults
