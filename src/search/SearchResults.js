@@ -30,7 +30,7 @@ class SearchResults extends Component {
 
   render () {
     return (
-      <table>
+      <table className="results-table">
         <thead>
           <tr>
             <th>Photo</th>
@@ -39,20 +39,42 @@ class SearchResults extends Component {
           </tr>
         </thead>
         <tbody>
-          {this.state.results.map(this.row)}
+          {this.state.results.map(this.item.bind(this))}
         </tbody>
       </table>
     )
   }
 
-  row (data) {
+  item (data) {
     return (
       <tr key={data.id}>
-        <td><img src={data.picture} alt="[photo]"/></td>
-        <td><div className="truncated">{data.message}</div></td>
-        <td className="link"><a href={data.permalink_url}>link</a></td>
+        <td>{this.itemPicture(data.picture)}</td>
+        <td>{this.itemMessage(data.message)}</td>
+        <td className="link"><a href={data.permalink_url}>View sale</a></td>
       </tr>
     )
+  }
+
+  itemPicture (picture) {
+    if (picture) {
+      return (<img src={picture} alt="[picture]"/>)
+    }
+    return (<span className="no-picture">No picture</span>)
+  }
+
+  itemMessage (message) {
+    if (message.length > 80) {
+      const preview = message.substring(0, 80)
+      return (
+        <div className="description">
+          <span className="preview">{preview}&hellip;</span>
+          <span className="help">[mouse over for more]</span>
+          <span className="more">{message}</span>
+        </div>
+      )
+    }
+
+    return (<div className="description">{message}</div>)
   }
 }
 
