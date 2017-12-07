@@ -8,13 +8,13 @@ class RecentSearches extends Component {
 
         <ul>
           <li>
-            <a href="#">Super NES</a>
+            <a disabled>Super NES</a>
           </li>
           <li>
-            <a href="#">Mario Kart</a>
+            <a disabled>Mario Kart</a>
           </li>
           <li>
-            <a href="#">Donkey Kong</a>
+            <a disabled>Donkey Kong</a>
           </li>
         </ul>
       </div>

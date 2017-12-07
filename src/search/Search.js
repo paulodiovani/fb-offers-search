@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import elasticlunr from 'elasticlunr'
-import './Search.css'
 
 const groupIds = [
   '1002772103090233',
@@ -60,8 +59,8 @@ class Search extends Component {
         <fieldset>
           <label htmlFor="search"></label>
           <div className="form-group">
-            <input type="text" id="search" onChange={this.search.bind(this)}/>
-            <input className="button-primary" type="submit" value="Search"/>
+            <input type="text" id="search" placeholder="Search"
+              onChange={this.search.bind(this)}/>
           </div>
         </fieldset>
       </form>
