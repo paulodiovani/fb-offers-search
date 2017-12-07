@@ -4,6 +4,16 @@ import Search from '../search/Search'
 import SearchResults from '../search/SearchResults'
 
 class Main extends Component {
+  constructor (props) {
+    super(props)
+    this.state = { results: [] }
+  }
+
+  populate (results) {
+    console.log(results)
+    this.setState({ results })
+  }
+
   render () {
     return (
       <div className="container">
@@ -12,13 +22,13 @@ class Main extends Component {
             <div className="container">
               <div className="row">
                 <div className="column">
-                  <Search/>
+                  <Search populate={this.populate.bind(this)}/>
                 </div>
               </div>
 
               <div className="row">
                 <div className="column">
-                  <SearchResults/>
+                  <SearchResults results={this.state.results} />
                 </div>
               </div>
             </div>

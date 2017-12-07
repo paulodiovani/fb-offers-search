@@ -1,17 +1,54 @@
-th.price,
-td.price {
+.results-table .truncate th.price,
+.results-table .truncate td.price {
   text-align: right;
 }
 
-th.link,
-td.link {
+.results-table th.link,
+.results-table td.link {
   text-align: center;
 }
 
-.truncated {
-  width: 400px;
+.results-table .no-picture {
+  font-size: 1.2rem;
+  text-transform: uppercase;
   display: block;
-  white-space: nowrap; /* forces text to single line */
-  overflow: hidden;
-  text-overflow: ellipsis;
+  background-color: #F4F5F6;
+  border: 1px solid #BD89DC;
+  border-radius: .25rem;
+  padding: 1.5rem 3rem;
+}
+
+.results-table .description {
+  position: relative;
+  padding: 1.5rem 3rem;
+  white-space: pre-wrap;
+}
+
+.results-table .description .preview {
+  white-space: normal;
+}
+
+.results-table .description .help {
+  color: #BD89DC;
+  font-size: 1.2rem;
+  padding: 0 1rem;
+}
+
+.results-table .description .more {
+  display: none;
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: #F4F5F6;
+  border: 1px solid #BD89DC;
+  border-radius: .25rem;
+  padding: 1.5rem 3rem;
+  z-index: 1;
+  white-space: pre-wrap;
+}
+
+.results-table .description:hover .more {
+  display: block;
+  cursor: zoom-in;
 }
