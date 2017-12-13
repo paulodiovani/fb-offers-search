@@ -28,13 +28,19 @@ class Search extends Component {
   }
 
   componentDidMount () {
-    config.facebook.groupIds.forEach((gid) => {
-      window.FB.api(
-        `/${gid}/feed?fields=message,picture,permalink_url,created_time`,
-        (response) => {
-          response.data.forEach((doc) => this.addDoc(doc))
-        }
-      )
+    config.facebook.groupIds.forEach((gid) => this.fetchGroupFeed(gid))
+  }
+
+  fetchGroupFeed (groupId, next = null) {
+    let url = `/${groupId}/feed?fields=message,picture,permalink_url,created_time`
+    if (next) url = next
+
+    window.FB.api(url, (response) => {
+      response.data.forEach((doc) => this.addDoc(doc))
+
+      if (response.data.length > 0) {
+        this.fetchGroupFeed(groupId, response.paging.next)
+      }
     })
   }
 
