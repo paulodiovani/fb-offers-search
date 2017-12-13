@@ -1,11 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import elasticlunr from 'elasticlunr'
-
-const groupIds = [
-  '1002772103090233',
-  '502867033154810'
-]
+import config from '../config.json'
 
 class Search extends Component {
   constructor (props) {
@@ -32,7 +28,7 @@ class Search extends Component {
   }
 
   componentDidMount () {
-    groupIds.forEach((gid) => {
+    config.facebook.groupIds.forEach((gid) => {
       window.FB.api(
         `/${gid}/feed?fields=message,picture,permalink_url,created_time`,
         (response) => {
