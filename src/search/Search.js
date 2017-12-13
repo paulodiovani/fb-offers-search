@@ -27,8 +27,8 @@ class Search extends Component {
     this.index.addDoc(doc)
   }
 
-  populate (documents) {
-    this.props.populate(documents)
+  renderResults (documents) {
+    this.props.renderResults(documents)
   }
 
   componentDidMount () {
@@ -50,7 +50,7 @@ class Search extends Component {
     const documents = results.map((item) => {
       return this.documents.find((doc) => doc.id === item.ref)
     })
-    this.populate(documents)
+    this.renderResults(documents)
   }
 
   render () {
@@ -69,7 +69,7 @@ class Search extends Component {
 }
 
 Search.propTypes = {
-  populate: PropTypes.func
+  renderResults: PropTypes.func
 }
 
 export default Search

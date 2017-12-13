@@ -9,8 +9,7 @@ class Main extends Component {
     this.state = { results: [] }
   }
 
-  populate (results) {
-    console.log(results)
+  renderResults (results) {
     this.setState({ results })
   }
 
@@ -22,7 +21,7 @@ class Main extends Component {
             <div className="container">
               <div className="row">
                 <div className="column">
-                  <Search populate={this.populate.bind(this)}/>
+                  <Search renderResults={this.renderResults.bind(this)}/>
                 </div>
               </div>
 
