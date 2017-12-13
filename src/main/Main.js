@@ -1,3 +1,4 @@
+import Groups from '../search/Groups'
 import React, { Component } from 'react'
 // import RecentSearches from '../search/RecentSearches'
 import Search from '../search/Search'
@@ -17,7 +18,7 @@ class Main extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="column column-75">
+          <div className="column column-67">
             <div className="container">
               <div className="row">
                 <div className="column">
@@ -33,10 +34,10 @@ class Main extends Component {
             </div>
           </div>
 
-          <div className="column column-25">
+          <div className="column column-33">
             <div className="row">
               <div className="column">
-                foo
+                <Groups/>
               </div>
               {/* <div className="column">
                 <RecentSearches/>

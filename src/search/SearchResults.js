@@ -14,30 +14,30 @@ class SearchResults extends Component {
           </tr>
         </thead>
         <tbody>
-          {this.props.results.map(this.item.bind(this))}
+          {this.props.results.map(this.renderItem.bind(this))}
         </tbody>
       </table>
     )
   }
 
-  item (data) {
+  renderItem (data) {
     return (
-      <tr key={data.id}>
-        <td>{this.itemPicture(data.picture)}</td>
-        <td>{this.itemMessage(data.message)}</td>
+      <tr key={`post-${data.id}`}>
+        <td>{this.renderItemPicture(data.picture)}</td>
+        <td>{this.renderItemMessage(data.message)}</td>
         <td className="link"><a href={data.permalink_url}>View sale</a></td>
       </tr>
     )
   }
 
-  itemPicture (picture) {
+  renderItemPicture (picture) {
     if (picture) {
       return (<img src={picture} alt="[picture]"/>)
     }
     return (<span className="no-picture">No picture</span>)
   }
 
-  itemMessage (message) {
+  renderItemMessage (message) {
     if (message.length > 80) {
       const preview = message.substring(0, 80)
       return (

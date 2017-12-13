@@ -1,0 +1,26 @@
+.groups-list {
+  margin: 0;
+  padding: 0;
+}
+
+.groups-list li {
+  padding: 0;
+  margin: 0;
+  display: block;
+  background-color: #003791;
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.groups-list li .text,
+.groups-list li .link {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem 1rem 1rem;
+  min-height: 12rem;
+  font-weight: bold;
+  background-image: linear-gradient(to bottom, #ffffff00 20%, #000000aa 60%);
+}
