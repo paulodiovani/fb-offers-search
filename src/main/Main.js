@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import RecentSearches from '../search/RecentSearches'
+// import RecentSearches from '../search/RecentSearches'
 import Search from '../search/Search'
 import SearchResults from '../search/SearchResults'
 
@@ -34,7 +34,14 @@ class Main extends Component {
           </div>
 
           <div className="column column-25">
-            <RecentSearches/>
+            <div className="row">
+              <div className="column">
+                foo
+              </div>
+              {/* <div className="column">
+                <RecentSearches/>
+              </div> */}
+            </div>
           </div>
         </div>
       </div>
