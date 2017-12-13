@@ -1,8 +1,8 @@
 {
-  "name": "offer-search",
+  "name": "offers-search",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://paulodiovani.github.io/offer-search",
+  "homepage": "http://paulodiovani.github.io/offers-search",
   "dependencies": {
     "elasticlunr": "^0.9.5",
     "react": "^16.2.0",
