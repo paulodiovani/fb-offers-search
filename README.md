@@ -30,6 +30,9 @@ yarn install
 
 # run for local development
 yarn start
+
+# deploy to gh-pages
+yarn deploy
 ```
 
 ## TODO
