@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import FacebookLogin from 'react-facebook-login'
+import config from '../config.json'
 
 class Login extends Component {
   constructor (props) {
@@ -25,7 +26,7 @@ class Login extends Component {
     return (
       <div>
         <FacebookLogin
-          appId="521415314884327"
+          appId={config.facebook.appId}
           autoLoad={true}
           fields="name,email,picture"
           callback={this.loginSucceed.bind(this)}
