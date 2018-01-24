@@ -1,25 +1,10 @@
+import './component.css'
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import config from '../config.json'
-import './Groups.css'
 
 class Groups extends Component {
-  constructor (props) {
-    super(props)
-
-    this.state = { groups: [] }
-  }
-
   componentDidMount () {
-    config.facebook.groupIds.forEach((gid) => {
-      window.FB.api(
-        `/${gid}?fields=cover,name,description`,
-        (group) => {
-          const groups = this.state.groups
-          groups.push(group)
-          this.setState({ groups })
-        }
-      )
-    })
+    this.props.groupsFetch()
   }
 
   render () {
@@ -28,7 +13,7 @@ class Groups extends Component {
         <h2>Groups</h2>
 
         <ul className="groups-list">
-          {this.state.groups.map(this.renderItem.bind(this))}
+          {this.props.groups.map(this.renderItem)}
         </ul>
       </div>
     )
@@ -44,6 +29,11 @@ class Groups extends Component {
       </li>
     )
   }
+}
+
+Groups.propTypes = {
+  groupsFetch: PropTypes.func,
+  groups: PropTypes.array
 }
 
 export default Groups

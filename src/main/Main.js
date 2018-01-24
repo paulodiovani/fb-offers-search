@@ -1,4 +1,4 @@
-import Groups from '../search/Groups'
+import Groups from '../groups'
 import React, { Component } from 'react'
 // import RecentSearches from '../search/RecentSearches'
 import Search from '../search/Search'
