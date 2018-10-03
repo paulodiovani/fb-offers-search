@@ -5,8 +5,11 @@
 
 .groups-list li {
   padding: 0;
-  margin: 0;
+  margin: 0 0 1rem 0;
   display: block;
+}
+
+.groups-list li[background-image] {
   background-color: #003791;
   background-position: center left;
   background-repeat: no-repeat;

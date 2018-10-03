@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import config from '../config.json'
+import Alert from '../alert/Alert'
 import './Groups.css'
 
 class Groups extends Component {
@@ -35,6 +36,11 @@ class Groups extends Component {
   }
 
   renderItem (data) {
+    if (data.error) {
+      console.error(data.error)
+      return (<li><Alert type="warning" message="Error loading group" /></li>)
+    }
+
     return (
       <li key={`group-${data.id}`} style={{ backgroundImage: `url(${data.cover.source})` }}>
         <a className="link"

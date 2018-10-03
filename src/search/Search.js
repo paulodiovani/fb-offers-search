@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import elasticlunr from 'elasticlunr'
+import Alert from '../alert/Alert'
 import config from '../config.json'
 
 class Search extends Component {
@@ -12,10 +13,14 @@ class Search extends Component {
       this.setRef('id')
       this.addField('message')
     })
+
+    this.state = {
+      error: null
+    }
   }
 
   shouldComponentUpdate () {
-    return false
+    return !this.state.error
   }
 
   addDoc (doc) {
@@ -36,6 +41,10 @@ class Search extends Component {
     if (next) url = next
 
     window.FB.api(url, (response) => {
+      if (response.error) {
+        return this.setState({ error: 'Error fechting group feed.' })
+      }
+
       response.data.forEach((doc) => this.addDoc(doc))
 
       if (response.data.length > 0) {
@@ -56,6 +65,10 @@ class Search extends Component {
   }
 
   render () {
+    if (this.state.error) {
+      return (<Alert type="error" message={ this.state.error } />)
+    }
+
     return (
       <form action="#">
         <fieldset>
