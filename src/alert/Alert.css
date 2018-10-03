@@ -1,0 +1,22 @@
+.alert {
+  padding: 1rem 1.5rem;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px
+}
+
+.alert-info {
+  background-color: #ccccff;
+  border-color: #6666ff;
+}
+
+.alert-warning {
+  background-color: #ffdd99;
+  border-color: #ffaa00;
+}
+
+.alert-error {
+  background-color: #ffcccc;
+  border-color: #ff6666;
+}
