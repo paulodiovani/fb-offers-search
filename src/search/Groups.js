@@ -36,13 +36,19 @@ class Groups extends Component {
   }
 
   renderItem (data) {
+    const style = {}
+
     if (data.error) {
       console.error(data.error)
       return (<li><Alert type="warning" message="Error loading group" /></li>)
     }
 
+    if (data.cover) {
+      style.backgroundImage = `url(${data.cover.source})`
+    }
+
     return (
-      <li key={`group-${data.id}`} style={{ backgroundImage: `url(${data.cover.source})` }}>
+      <li key={`group-${data.id}`} style={ style }>
         <a className="link"
           href={`https://www.facebook.com/groups/${data.id}/`}
           title={data.description}
