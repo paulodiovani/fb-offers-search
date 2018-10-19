@@ -5,6 +5,12 @@ A simple React App to search for offers/sales in Facebook public Groups.
 It fetches the entire feed of the defined groups and cache in memory. Them
 search the results using [elasticlunr](http://elasticlunr.com/).
 
+## ⚠ Discontinued
+
+Facebook has recently changed its group API, which now requires a user to be the
+group admin to allow fetching the feed and/or the app to be installed in the group.
+Thus, offers-search will not work as it was initially planned.
+
 ## Dependencies
 
 - Node.js
